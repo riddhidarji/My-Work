@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="product_low_stock_report_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <t t-set="product_lst" t-value="doc._context['product_lst']"/>
+                    <t t-set="company" t-value="doc._context['company_id']"/>
+                    <div class="page">
+                        <h2>Low Stock For Your Product</h2>
+                        <table class="table table-bordered">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Minimum Quantity</th>
+                                    <th t-if="company.notification_based == 'onhand_quontity'">On Hand Product Quantity</th>
+                                    <th t-if="company.notification_based == 'forecast'">Forecast Product Quantity</th>
+                                    <th>Required quantity</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="product_lst" t-as="product">
+                            <tr>
+                                <!-- <t t-esc="product_lst"/> -->
+                                <td><t t-out="product.name"/></td>
+                                <td>
+                                    <t t-if="company.product_configration == 'common'" t-out="company.quantity_limit"/>
+                                    <t t-if="company.product_configration=='onproduct'" t-out="product.minimum_quantity"/>
+                                </td>                            
+                                <td t-if="company.notification_based == 'onhand_quontity'"><t t-out="product.qty_available"/></td>
+                                <td t-if="company.notification_based == 'forecast'" t-out="product.virtual_available or ''"/>
+                                <td><t t-out="product.required_qty"/></td>
+                            </tr>
+                            </t>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="action_low_stock_product" model="ir.actions.report">
+        <field name="name">product_low_stock</field>
+        <field name="model">product.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">product_low_stock_notification.product_low_stock_report_report</field>
+        <field name="report_file">product_low_stock_notification.product_low_stock_report_report</field>
+        <field name="binding_model_id" ref="model_product_template"/>
+        <field name="print_report_name">'Product Low Stock'</field>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

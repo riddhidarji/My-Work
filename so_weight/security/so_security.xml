@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_so_configration" model="res.groups">
+        <field name="name">Display So weight and Volume</field>
+    </record>
+</odoo>

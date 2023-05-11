@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="mrp_Porder_report_inherit" inherit_id="mrp.report_mrporder">
+        <xpath expr="//div[hasclass('page')]/div[4]" position="after">
+            <div style="text-align: right;">
+                <img t-att-src="'/report/barcode/QR/'+o.name" style="height:120px; width:120px;"   alt="QR Code"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_invotary_settings_view" model="ir.ui.view">
+        <field name="name">res.config.invotary.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@id='schedule_info']" position="before">
+                <h2>Product Stock Notification</h2>
+                <div class="row mt16 o_settings_container"  name="stock_setting_container">
+                    <div class="col-12 col-lg-6 o_setting_box" id="process_notification">
+                        <div class="o_setting_right_pane">
+                            <label for="notification_based"/>
+                            <div class="text-muted">
+                                Set quontity type
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="notification_based" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="process_product">
+                        <div class="o_setting_right_pane">
+                            <label for="apply_on"/>
+                            <div class="text-muted">
+                                Check all product and selected product
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="apply_on" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="process_quantity">
+                        <div class="o_setting_right_pane">
+                            <label for="quantity_limit"/>
+                            <div class="text-muted">
+                                Set minimum quantity
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="quantity_limit" class="o_light_label"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="process_quantity">
+                        <div class="o_setting_right_pane">
+                            <label for="all_product_category_ids"/>
+                            <div class="text-muted">
+                                Select product for send notification
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="all_product_category_ids" class="o_light_label" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="process_configration">
+                        <div class="o_setting_right_pane">
+                            <label for="product_configration"/>
+                            <div class="text-muted">
+                                Set Product Configration
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="product_configration" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

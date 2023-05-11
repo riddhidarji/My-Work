@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="purchase_order_report_inherit" inherit_id="purchase.report_purchaseorder_document">
+        <xpath expr="//div[hasclass('page')]/div/h2[2]/span" position="after">
+            <div style="text-align: right;">
+                <img t-att-src="'/report/barcode/QR/'+o.name" style="height:120px; width:120px;"   alt="QR Code"/>
+            </div>
+        </xpath>
+    </template>
+
+        <template id="po_quotation_report_inherit" inherit_id="purchase.report_purchasequotation_document">
+        <xpath expr="//div[hasclass('page')]/h2/span" position="after">
+            <div style="text-align: right;">
+                <img t-att-src="'/report/barcode/QR/'+o.name" style="height:120px; width:120px;"   alt="QR Code"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

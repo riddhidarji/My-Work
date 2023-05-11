@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="sale_report_search_view_inherit" model="ir.ui.view">
+        <field name="name">sale.report.search.view.inherit</field>
+        <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_search"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//field[@name='user_id']" position="after">
+        		<field name="stage_id"/>
+        	</xpath>
+        	<xpath expr="//filter[@name='User']" position="after">
+        		<filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
+        	</xpath>
+        </field>
+    </record>
+    <record id="sale_order_search_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.search.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name="arch" type="xml">
+        	<xpath expr="//filter[@name='filter_create_date']" position="after">
+        		<separator/>
+        		<filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
+        	</xpath>
+        </field>
+    </record>
+</odoo>

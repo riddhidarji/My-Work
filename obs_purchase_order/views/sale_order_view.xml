@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_order_view" model="ir.ui.view">
+        <field name="name">sale.order.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+			
+			<xpath expr="//button[@name='action_preview_sale_order']" position="after">
+               <button name="action_preview_purchase_order" type="object" class="oe_stat_button" icon="fa-credit-card" attrs="{'invisible': [('purchase_count', '=', 0)]}">
+                        <div class="o_field_widget o_stat_info">
+                        	<field name="purchase_count"/>
+                            <span class="o_stat_text">Purchase Order</span>
+                        </div>
+                    </button>
+            </xpath>
+            <xpath expr="//page[@name='order_lines']/field[@name='order_line']/tree" position="attributes">
+				<attribute name="editable">"top"</attribute>
+			</xpath>
+		</field>
+	</record>
+</odoo>

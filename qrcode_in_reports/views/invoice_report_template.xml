@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="invoice_report_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div/div[hasclass('page')]/h2/span[7]" position="after">
+            <div style="text-align: right;">
+                <img t-att-src="'/report/barcode/QR/'+o.name" style="height:120px; width:120px;"   alt="QR Code"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

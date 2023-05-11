@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="so_weight_view_inherit" model="ir.ui.view">
+        <field name="name">so.weight.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <label for="so_total_weight" groups="so_weight.group_so_configration"/>
+                <div>
+                    <field name="so_total_weight" groups="so_weight.group_so_configration" class="oe_inline"/> kg
+                </div>
+                <label for="so_total_volume" groups="so_weight.group_so_configration"/>
+                <div>
+                    <field name="so_total_volume" groups="so_weight.group_so_configration" class="oe_inline"/> m³
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+    <record id="so_weight_tree_view_inherit" model="ir.ui.view">
+        <field name="name">so.weight.tree.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="so_total_weight" groups="so_weight.group_so_configration"/>
+                <field name="so_total_volume" groups="so_weight.group_so_configration"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

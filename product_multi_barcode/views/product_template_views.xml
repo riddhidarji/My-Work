@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_barcode_view" model="ir.ui.view">
+        <field name="name">product.barcode.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet[@name='product_form']/notebook" position="inside">
+                <page string="Barcodes">
+                    <field name="product_barcode_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="product_barcode_search_view" model="ir.ui.view">
+        <field name="name">product.barcode.search.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="product_barcode_ids"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

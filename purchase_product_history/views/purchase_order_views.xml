@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="po_sale_history_view_inherit" model="ir.ui.view">
+        <field name="name">purchase.sale.history.view.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='open_pricelist_rules']" position="before">
+               <button name="action_preview_sales_history" type="object" class="oe_stat_button" icon="fa-rotate-left">
+                        <div class="o_field_widget o_stat_info">
+                            <field name="so_history_count"/>
+                            <span class="o_stat_text">Sales History</span>
+                        </div>
+                </button>
+                <button name="action_preview_purchase_history" type="object" class="oe_stat_button" icon="fa-rotate-left">
+                        <div class="o_field_widget o_stat_info">
+                            <field name="po_history_count"/>
+                            <span class="o_stat_text">Purchase History</span>
+                        </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_users_view" model="ir.ui.view">
+        <field name="name">res.users.view</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.user_groups_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='in_group_3']" position="after">
+                <field name="desc_configration"/>  
+            </xpath>
+        </field>
+    </record>
+</odoo>

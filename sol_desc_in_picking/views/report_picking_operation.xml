@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="sale_order_line_to_stock_move_report_inherit" inherit_id="stock.report_picking">
+        <xpath expr="//th[@name='th_product']" position="after">
+            <th name="th_sm_desc"><strong>Description</strong></th>
+        </xpath>
+        <xpath expr="//table/tbody/t/tr/td[1]" position="after">
+            <td>
+                <span t-field="ml.move_id.description_picking"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>
+        
+

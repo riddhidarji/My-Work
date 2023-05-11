@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="sales_person_update_view" model="ir.ui.view">
+		<field name="name">sales.person.update.view</field>
+		<field name="model">sales.person.update</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<h3>Update SalesPerson</h3>
+						<h3>Update Allocate Salesperson</h3><br/><br/>
+						<group>
+							<field name="update_sales_person"/>
+							<field name="sales_person" attrs="
+							    			{'invisible':[('update_sales_person', '=', False)]}"/>
+						</group>
+						<group>
+							<field name="Up_allocated_saleperson"/>
+							<field name="allocated_saleperson_type" widget="radio" attrs="
+							    			{'invisible':[('Up_allocated_saleperson', '=', False)]}"/>
+							<field name="allocated_saleperson" widget="many2many_tags" attrs="
+							    			{'invisible':[('Up_allocated_saleperson', '=', False)]}"/>
+						</group>
+					</group>
+				</sheet>
+				<footer>
+					<button name="update" string="Update" class="oe_highlight" type="object"/>
+					<button string="Cancel" class="oe_highlight" special="cancel"/>
+				</footer>
+			</form>
+	    </field> 
+	</record>
+	<record id="sales_person_update_action" model="ir.actions.act_window">
+		<field name="name">Mass Update</field>
+		<field name="res_model">sales.person.update</field>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="sales_person_update_view"/>
+		<field name="target">new</field>
+	</record>
+</odoo>
