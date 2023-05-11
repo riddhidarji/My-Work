@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_partner_view_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.partner_view_buttons"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_view_partner_invoices']" position="after">
+               <button name="action_preview_sales_history" type="object" class="oe_stat_button" icon="fa-rotate-left">
+                        <div class="o_field_widget o_stat_info">
+                            <field name="history_count"/>
+                            <span class="o_stat_text">Sales History</span>
+                        </div>
+                    </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
